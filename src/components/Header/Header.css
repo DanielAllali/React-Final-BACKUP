@@ -1,0 +1,156 @@
+header {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 4vw;
+    position: fixed;
+    top: 0;
+    z-index: 999999999999999999999999999999999999999999999;
+    box-shadow: black 0 1px 20px;
+}
+header .userDiv {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 10px;
+}
+header .userDiv:hover h5 {
+    text-decoration: underline;
+}
+header .userDiv img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+header .loginSignup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+header .headerNotNavDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+header button.uiMode {
+    background: none;
+    border: none;
+    margin-right: 4vw;
+}
+.navbar-nav .nav-link:hover {
+    border-bottom: 1px solid #fff;
+}
+.searchFoundCards {
+    width: 80vw;
+    height: 200px;
+    position: fixed;
+    z-index: 999;
+    top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+}
+@media (min-width: 922px) {
+    .navbar-nav .fDirecColumn922px {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media (max-width: 922px) {
+    .searchFoundCards {
+        top: 250px;
+    }
+}
+.searchFoundCards > button {
+    order: 2;
+    width: 20vw;
+    height: 200px;
+    font-size: 3rem;
+    margin-left: 10px;
+}
+.searchFoundCards table {
+    width: 80vw;
+    height: 180px;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 50px;
+    gap: 20px;
+    overflow-y: scroll;
+}
+.searchFoundCards table button {
+    width: 50vw;
+}
+.searchFoundCards table button h1 {
+    font-size: calc(1vw + 1rem);
+}
+
+.logoutContainer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: -50px;
+    left: 0;
+    z-index: 99999999999;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    display: none;
+    transition: all 0.5s;
+}
+.logoutContainer .logoutContent {
+    width: 30vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.logoutContainer .logoutContent p {
+    font-size: 2rem;
+}
+.logoutContainer .logoutContent div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media (max-width: 1000px) {
+    .logoutContainer .logoutContent {
+        width: 60vw;
+    }
+    .searchFoundCards {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 400px) {
+    header .headerNotNavDiv button {
+        font-size: 0.6rem;
+    }
+    header .userDiv h5 {
+        display: none;
+    }
+    .logoutContainer .logoutContent {
+        width: 80vw;
+    }
+}

@@ -1,0 +1,16 @@
+div.toastContainer {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    position: fixed;
+    top: 30px;
+    z-index: 99999999;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 10px;
+    transition: all 1s;
+}
+div.toastContainer h2 {
+    font-size: 0.8rem;
+}

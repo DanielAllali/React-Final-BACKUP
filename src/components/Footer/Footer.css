@@ -1,0 +1,24 @@
+footer {
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    z-index: 99999;
+    bottom: 0;
+    background-color: black;
+    box-shadow: 0 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

@@ -1,0 +1,96 @@
+button.showPassword {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+div.loginDiv {
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+div.loginDiv form {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+div.loginDiv form label {
+    margin-bottom: -10px;
+    margin-left: 20px;
+    background-color: #535353;
+    position: relative;
+    z-index: 9;
+}
+div.loginDiv form input {
+    width: 30vw;
+    height: 50px;
+    border-radius: 10px;
+    background: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+}
+div.loginDiv form input:focus {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+div.loginDiv form input:focus {
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+div.loginDiv form h3 {
+    color: darkred;
+    font-size: 1rem;
+}
+
+div.loginDiv form div {
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 40px;
+}
+div.loginDiv form div button {
+    width: 15vw;
+    height: 40px;
+}
+div.loginDiv form button.btn-success {
+    width: 30vw;
+    height: 40px;
+    margin-top: 10px;
+}
+
+@media (max-width: 1000px) {
+    div.loginDiv form {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+    div.loginDiv form input {
+        width: 80vw;
+    }
+    div.loginDiv form div {
+        width: 80vw;
+    }
+    div.loginDiv form div button {
+        width: 40vw;
+        height: 40px;
+    }
+    div.loginDiv form button.btn-success {
+        width: 80vw;
+        height: 40px;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,141 @@
+.createCardDiv {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.createCardDiv table {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.createCardDiv table tr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.createCardDiv table tr button {
+    width: 25vw;
+}
+.createCardDiv table tr button.btn-success {
+    width: calc(50vw + 25px);
+}
+.createCardDiv table tr td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createCardDiv table tr td h3 {
+    width: 25vw;
+    font-size: 1rem;
+    color: darkred;
+}
+
+form.createCardFrom .inputs {
+    width: calc(50vw + 40px);
+}
+
+.createCardFrom input {
+    width: 25vw;
+    height: 60px;
+    border-radius: 10px;
+    background: none;
+    padding: 5px 5px 5px 25px;
+    transition: box-shadow 0.2s;
+}
+input:focus {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+form.createCardFrom .btnsDiv {
+    width: calc(50vw + 40px);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+form.createCardFrom .btnsDiv button {
+    width: calc(50vw + 40px);
+    height: 40px;
+}
+form.createCardFrom .btnsDiv div {
+    width: calc(50vw + 40px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 1400px) {
+    .createCardDiv table tr td h3 {
+        width: 40vw;
+    }
+    .createCardDiv table {
+        width: 90vw;
+    }
+    .createCardDiv table tr button {
+        width: 40vw;
+    }
+    .createCardDiv table tr button.btn-success {
+        width: calc(80vw + 30px);
+    }
+    form.createCardFrom .inputs {
+        width: calc(80vw + 40px);
+    }
+
+    .createCardFrom input {
+        width: 40vw;
+    }
+    form.createCardFrom .btnsDiv {
+        width: calc(80vw + 40px);
+    }
+    form.createCardFrom .btnsDiv button {
+        width: calc(80vw + 40px);
+    }
+    form.createCardFrom .btnsDiv div {
+        width: calc(80vw + 40px);
+    }
+}
+
+@media (max-width: 900px) {
+    .createCardDiv table tr td h3 {
+        width: 45vw;
+    }
+    .createCardDiv table {
+        width: 100vw;
+    }
+    .createCardDiv table tr button {
+        width: 45vw;
+    }
+    .createCardDiv table tr button.btn-success {
+        width: calc(90vw + 30px);
+    }
+    form.createCardFrom .inputs {
+        width: calc(90vw + 40px);
+    }
+
+    .createCardFrom input {
+        width: 45vw;
+    }
+    form.createCardFrom .btnsDiv {
+        width: calc(90vw + 40px);
+    }
+    form.createCardFrom .btnsDiv button {
+        width: calc(90vw + 40px);
+    }
+    form.createCardFrom .btnsDiv div {
+        width: calc(90vw + 40px);
+    }
+}

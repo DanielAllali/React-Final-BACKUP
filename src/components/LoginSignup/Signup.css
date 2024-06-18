@@ -1,0 +1,139 @@
+div.signupDiv {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    overflow-x: hidden;
+}
+
+div.signupDiv h1 {
+    color: white;
+}
+
+div.signupDiv form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.signupDiv tr {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+div.signupDiv tr td {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+div.signupDiv tr td label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    padding: 0 5px;
+    z-index: 1;
+}
+
+div.signupDiv tr td input {
+    width: 25vw;
+    height: 60px;
+    border-radius: 10px;
+    background: none;
+    padding: 5px 5px 5px 25px;
+    transition: box-shadow 0.2s;
+}
+div.signupDiv tr td input + h3 {
+    color: darkred;
+    font-size: 1rem;
+}
+div.signupDiv tr td input:focus {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.signupDiv tr td input:focus {
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+div.signupDiv tr + tr + tr + tr + tr + tr + tr + tr td {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+div.signupDiv tr td label[for="isBuisenessInput"] {
+    order: 2;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+}
+div.signupDiv tr td input[type="checkbox"] {
+    order: 1;
+    width: 15px;
+    height: 15px;
+    background: none;
+    border: 3px solid #000;
+    cursor: pointer;
+}
+
+div.signupDiv form div {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 40px;
+}
+
+div.signupDiv form div button {
+    width: 25vw;
+    height: 40px;
+}
+
+div.signupDiv form button.btn-success {
+    width: 50vw;
+    height: 40px;
+    margin-top: 10px;
+}
+
+@media (max-width: 1000px) {
+    div.signupDiv tr td input + h3 {
+        font-size: 0.75rem;
+    }
+    div.signupDiv form {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+    div.signupDiv tr td input {
+        width: 40vw;
+    }
+    div.signupDiv form div {
+        width: 80vw;
+    }
+    div.signupDiv form div button {
+        width: 40vw;
+        height: 40px;
+    }
+    div.signupDiv form button.btn-success {
+        width: 80vw;
+        height: 40px;
+        margin-top: 10px;
+    }
+}

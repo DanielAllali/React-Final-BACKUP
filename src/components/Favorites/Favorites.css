@@ -1,0 +1,53 @@
+.favDiv {
+    width: 100vw;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.favDiv .favCards {
+    width: calc(100vw - 20px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 5vw;
+    padding-top: 0;
+    padding-bottom: 70px;
+    overflow-y: scroll;
+}
+.favDiv .favCards .card {
+    border-radius: 10px;
+}
+.favDiv .favCards .card img {
+    width: 25vw;
+    height: 20vw;
+    border-radius: 10px 10px 0 0;
+}
+
+.returnBtn {
+    width: 100px;
+    height: 40px;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+@media (max-width: 800px) {
+    .favDiv .favCards .card img {
+        width: 30vw;
+    }
+}
+@media (max-width: 500px) {
+    .favDiv .favCards .card img {
+        width: 80vw;
+        height: 50vw;
+    }
+}

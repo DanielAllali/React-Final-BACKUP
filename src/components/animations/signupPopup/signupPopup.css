@@ -1,0 +1,139 @@
+.signupPopupContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999999999999999999999999999999999999999999999;
+    background-color: #3b81f3;
+}
+.signupPopupContainer video {
+    width: 1500px;
+    border-radius: 10px;
+    border: none;
+}
+
+.signupPopupContainer button {
+    width: 200px;
+    height: 60px;
+    margin: 0.5em;
+    background: #3b81f3;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 400px;
+}
+
+.signupPopupContainer button:hover {
+    color: #3b81f3;
+}
+
+.signupPopupContainer button:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+.signupPopupContainer button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.signupPopupContainer h4 {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 500px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.signupPopupContainer h4:hover {
+    text-decoration: underline;
+}
+
+.signupPopupContainer h1 {
+    font-size: calc(1rem + 1vw);
+    color: white;
+    display: none;
+}
+
+@media (max-width: 1500px) {
+    .signupPopupContainer video {
+        width: 1100px;
+    }
+    .signupPopupContainer button {
+        margin-top: 350px;
+    }
+    .signupPopupContainer h4 {
+        margin-top: 450px;
+    }
+}
+@media (max-width: 1100px) {
+    .signupPopupContainer video {
+        width: 800px;
+    }
+    .signupPopupContainer button {
+        width: 130px;
+        height: 40px;
+        margin-top: 200px;
+    }
+    .signupPopupContainer h4 {
+        margin-top: 300px;
+    }
+}
+@media (max-width: 800px) {
+    .signupPopupContainer video {
+        display: none;
+    }
+    .signupPopupContainer h1 {
+        display: block;
+    }
+    .signupPopupContainer button {
+        background: white;
+        color: #3b81f3;
+        width: 200px;
+        height: 60px;
+    }
+
+    .signupPopupContainer button:hover {
+        color: white;
+    }
+    .signupPopupContainer button:after {
+        background: #3b81f3;
+    }
+}
+
+@media (max-width: 400px) {
+    .signupPopupContainer h1 {
+        font-size: 1rem;
+    }
+    .signupPopupContainer button {
+        font-size: 1rem !important;
+    }
+
+    .signupPopupContainer button:hover {
+        color: white;
+    }
+    .signupPopupContainer button:after {
+        background: #3b81f3;
+    }
+}

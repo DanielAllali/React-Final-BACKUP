@@ -1,0 +1,114 @@
+.businessView {
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 0;
+    box-shadow: 0 20px 24px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 1s;
+}
+.businessView:hover {
+    box-shadow: none;
+}
+
+.businessView img {
+    width: 60vw;
+    border-radius: 10px 10px 0 0;
+}
+
+.businessView div {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 20px;
+}
+.businessView div ul {
+    width: 60vw;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.businessView div ul li {
+    padding: 1vw;
+    font-size: calc(1vw + 5pt);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.businessView div ul li i {
+    margin-right: 1vw;
+}
+.businessView div ul li a {
+    margin-right: 1vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.businessView ul.addressUl {
+    width: 60vw;
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: start;
+    margin: 0 auto;
+}
+
+.returnBtn {
+    width: 100px;
+    height: 40px;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+@media (max-width: 1000px) {
+    .businessView {
+        width: 80vw;
+    }
+    .businessView img {
+        width: 80vw;
+    }
+    .businessView div {
+        width: 80vw;
+    }
+    .businessView div ul {
+        width: 80vw;
+        padding: 10px;
+    }
+}
+@media (max-width: 500px) {
+    .businessView div ul {
+        padding-right: 15px;
+        flex-direction: column;
+    }
+    .businessView div ul li {
+        font-size: 1rem;
+    }
+    .businessView ul.addressUl {
+        width: 80vw;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,55 @@
+div.aboutBody {
+    width: 100vw;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.aboutBody ul {
+    width: 60vw;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div.aboutBody ul li {
+    width: 60vw;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px;
+    transition: box-shadow 1s;
+}
+div.aboutBody ul li:hover {
+    box-shadow: none;
+}
+
+div.aboutBody ul li ul {
+    list-style-type: decimal;
+}
+div.aboutBody ul li ul li {
+    box-shadow: none;
+}
+div.aboutBody ul li ul li span {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.returnBtn {
+    width: 100px;
+    height: 40px;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
