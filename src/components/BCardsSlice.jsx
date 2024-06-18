@@ -13,7 +13,6 @@ const initialState = {
         backgrounds: {
             header: "primary",
             cards: "#f8f9fa",
-            footer: "#f8f9fa",
             body: "#E3F2FD",
         },
     },
@@ -43,7 +42,6 @@ const bcCardsSlice = createSlice({
                     backgrounds: {
                         header: "primary",
                         cards: "#f8f9fa",
-                        footer: "#f8f9fa",
                         body: "#E3F2FD",
                     },
                 };
@@ -60,7 +58,6 @@ const bcCardsSlice = createSlice({
                     backgrounds: {
                         header: "dark",
                         cards: "#000",
-                        footer: "#000",
                         body: "#535353",
                     },
                 };
