@@ -71,19 +71,25 @@ const Login = () => {
                     bgc: "bg-success",
                 })
             );
+            setTimeout(() => {
+                dispatch(disapearToast());
+                setStatusCode(false);
+            }, 7100);
             navigate("/");
-        } else if (statusCode == 400) {
+            return;
+        }
+        if (statusCode == 400) {
             dispatch(
                 displayToast({
                     message: "Email or password uncorrect",
                     bgc: "bg-danger",
                 })
             );
+            setTimeout(() => {
+                dispatch(disapearToast());
+                setStatusCode(false);
+            }, 7100);
         }
-        setTimeout(() => {
-            dispatch(disapearToast());
-            setStatusCode(false);
-        }, 7100);
     }, [statusCode]);
     const handleChange = (e) => {
         const { name, value } = e.target;

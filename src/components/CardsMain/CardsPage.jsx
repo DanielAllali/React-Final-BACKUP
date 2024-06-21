@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 import "ldrs/ring"; /* library fot loading */
 import { quantum } from "ldrs";
 import { useNavigate } from "react-router-dom";
+import DeleteCard from "../MyCards/DeleteCard";
 quantum.register();
 
 const CardsPage = () => {
@@ -20,6 +21,8 @@ const CardsPage = () => {
     const [cardErrors, isLoading, apiResponse, callApi] = useApi();
     const [cards, setCards] = useState(null);
     const [likedCards, setLikedCards] = useState({});
+    const [isDeletePopup, setIsDeletePopup] = useState();
+    const [selectedCardForDelete, setSelectedCardForDelete] = useState();
     const [userPerm, setUserPerm] = useState(
         localStorage.getItem("userPermissions")
             ? jwtDecode(localStorage.getItem("userPermissions"))
@@ -142,11 +145,31 @@ const CardsPage = () => {
                                                 &#x2665;
                                             </button>
                                         )}
+                                        {userPerm && userPerm.isAdmin && (
+                                            <button
+                                                className={uiModeColors.text}
+                                                onClick={() => {
+                                                    setIsDeletePopup(true);
+                                                    setSelectedCardForDelete(
+                                                        business
+                                                    );
+                                                }}
+                                            >
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     ))}
+                {isDeletePopup && (
+                    <DeleteCard
+                        isDisplay={isDeletePopup}
+                        setIsDisplay={setIsDeletePopup}
+                        card={selectedCardForDelete}
+                    />
+                )}
                 {isLoading && (
                     <l-quantum
                         size="90"

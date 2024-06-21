@@ -47,7 +47,7 @@ const DeleteCard = ({ isDisplay, setIsDisplay, card }) => {
 
                             setTimeout(() => {
                                 deleteContainer.style.display = "none";
-                                window.location.reload();
+                                /* window.location.reload(); */
                                 setIsDisplay(false);
                             }, 1000);
                         }}
