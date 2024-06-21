@@ -184,7 +184,7 @@ const Header = () => {
                             <l-quantum
                                 size="90"
                                 speed="1.75"
-                                color={uiModeColors.icon}
+                                color="white"
                             ></l-quantum>
                         )}
                         {searchedCards &&
