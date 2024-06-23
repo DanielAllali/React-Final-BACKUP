@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { useDispatch, useSelector } from "react-redux";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { setSearchedCards } from "../BCardsSlice";
 
 const Nav = ({ setIsSearch, search, foundCards }) => {
@@ -12,11 +12,13 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
     const uiModeColors = useSelector((state) => state.bCards.uiModeColors);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const location = useLocation();
     const [userPerm, setUserPerm] = useState(
         localStorage.getItem("userPermissions")
             ? jwtDecode(localStorage.getItem("userPermissions"))
             : null
     );
+
     useEffect(() => {
         setUserPerm(
             localStorage.getItem("userPermissions")
@@ -24,13 +26,22 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                 : null
         );
     }, [localStorage.getItem("userPermissions")]);
+
     const handleSearchChange = (e) => {
         setSearchValue(e.target.value);
         search.setSearchInput(e.target.value);
     };
+
     useEffect(() => {
         search.setSearchInput(searchValue);
     }, [searchValue]);
+
+    const getLinkClass = (path) => {
+        return location.pathname === path
+            ? "nav-link text-light border-bottom border-light"
+            : "nav-link text-light";
+    };
+
     return (
         <div>
             <nav
@@ -38,9 +49,7 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
             >
                 <div className="container-fluid">
                     <a
-                        onClick={() => {
-                            navigate("/");
-                        }}
+                        onClick={() => navigate("/")}
                         className="text-light navbar-brand fw-bold"
                         href="#"
                     >
@@ -67,12 +76,10 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                         >
                             <li className="nav-item">
                                 <a
-                                    className="text-light nav-link active"
+                                    className={getLinkClass("/About")}
                                     aria-current="page"
                                     href="#"
-                                    onClick={() => {
-                                        navigate("/About");
-                                    }}
+                                    onClick={() => navigate("/About")}
                                 >
                                     ABOUT
                                 </a>
@@ -81,11 +88,13 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                                 <div className="fDirecColumn922px">
                                     <li className="nav-item">
                                         <a
-                                            className="text-light nav-link active"
+                                            className={getLinkClass(
+                                                "/Favorites"
+                                            )}
                                             href="#"
-                                            onClick={() => {
-                                                navigate("/Favorites");
-                                            }}
+                                            onClick={() =>
+                                                navigate("/Favorites")
+                                            }
                                         >
                                             FAV CARDS
                                         </a>
@@ -94,11 +103,13 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                                         <div className="fDirecColumn922px">
                                             <li className="nav-item">
                                                 <a
-                                                    className="text-light nav-link active"
+                                                    className={getLinkClass(
+                                                        "/MyCards"
+                                                    )}
                                                     href="#"
-                                                    onClick={() => {
-                                                        navigate("/MyCards");
-                                                    }}
+                                                    onClick={() =>
+                                                        navigate("/MyCards")
+                                                    }
                                                 >
                                                     MY CARDS
                                                 </a>
@@ -106,7 +117,9 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                                             {userPerm.isAdmin && (
                                                 <li className="nav-item">
                                                     <a
-                                                        className="text-light nav-link active"
+                                                        className={getLinkClass(
+                                                            "/Sandbox"
+                                                        )}
                                                         href="#"
                                                     >
                                                         SANDBOX
@@ -128,12 +141,8 @@ const Nav = ({ setIsSearch, search, foundCards }) => {
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                                onFocus={() => {
-                                    setIsSearch(true);
-                                }}
-                                onChange={(e) => {
-                                    handleSearchChange(e);
-                                }}
+                                onFocus={() => setIsSearch(true)}
+                                onChange={(e) => handleSearchChange(e)}
                                 value={searchValue}
                             />
                             <button
