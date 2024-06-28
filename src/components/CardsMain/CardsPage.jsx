@@ -21,6 +21,7 @@ const CardsPage = () => {
     const [cardErrors, isLoading, apiResponse, callApi] = useApi();
     const [cards, setCards] = useState(null);
     const [likedCards, setLikedCards] = useState({});
+    const [likeCount, setLikeCount] = useState({});
     const [isDeletePopup, setIsDeletePopup] = useState();
     const [selectedCardForDelete, setSelectedCardForDelete] = useState();
     const [userPerm, setUserPerm] = useState(
@@ -49,6 +50,12 @@ const CardsPage = () => {
             ...likedCards,
             [card._id]: !likedCards[card._id],
         });
+        setLikeCount({
+            ...likeCount,
+            [card._id]: !likedCards[card._id]
+                ? likeCount[card._id] + 1
+                : likeCount[card._id] - 1,
+        });
     };
     useEffect(() => {
         /* if the apiResponse is an array it means its the cards */
@@ -66,6 +73,14 @@ const CardsPage = () => {
                 }
             }
             setLikedCards(initialLikedCards);
+            let initialLikeCount = {};
+            for (const card of apiResponse) {
+                initialLikeCount = {
+                    ...initialLikeCount,
+                    [card._id]: card.likes.length,
+                };
+            }
+            setLikeCount(initialLikeCount);
         }
     }, [apiResponse]);
     return (
@@ -160,7 +175,9 @@ const CardsPage = () => {
                                                 >
                                                     &#x2665;
                                                 </button>
-                                                <h6>{business.likes.length}</h6>
+                                                <h6>
+                                                    {likeCount[business._id]}
+                                                </h6>
                                             </div>
                                         )}
                                         {userPerm && userPerm.isAdmin && (
