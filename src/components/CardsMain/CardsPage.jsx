@@ -61,18 +61,20 @@ const CardsPage = () => {
         /* if the apiResponse is an array it means its the cards */
         if (Array.isArray(apiResponse)) {
             setCards(apiResponse);
-            let initialLikedCards = {};
-            for (const card of apiResponse) {
-                for (const like of card.likes) {
-                    if (like == userPerm._id) {
-                        initialLikedCards = {
-                            ...initialLikedCards,
-                            [card._id]: card._id,
-                        };
+            if (userPerm) {
+                let initialLikedCards = {};
+                for (const card of apiResponse) {
+                    for (const like of card.likes) {
+                        if (like == userPerm._id) {
+                            initialLikedCards = {
+                                ...initialLikedCards,
+                                [card._id]: card._id,
+                            };
+                        }
                     }
                 }
+                setLikedCards(initialLikedCards);
             }
-            setLikedCards(initialLikedCards);
             let initialLikeCount = {};
             for (const card of apiResponse) {
                 initialLikeCount = {
@@ -110,10 +112,12 @@ const CardsPage = () => {
                                 style={{ cursor: "pointer" }}
                             />
                             <div style={{ color: uiModeColors.icon }}>
-                                <h1>{business.title}</h1>
-                                <p style={{ color: uiModeColors.weekText }}>
-                                    {business.subtitle}
-                                </p>
+                                <div className="cardHead">
+                                    <h1>{business.title}</h1>
+                                    <p style={{ color: uiModeColors.weekText }}>
+                                        {business.subtitle}
+                                    </p>
+                                </div>
                                 <hr />
                                 <h6>
                                     Phone: <span>{business.phone}</span>

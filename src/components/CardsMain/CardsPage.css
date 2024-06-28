@@ -52,6 +52,10 @@
 .container .cardsDiv .card div {
     padding: 10px;
 }
+.container .cardsDiv .card div div.cardHead {
+    display: block;
+    height: 150px;
+}
 .container .cardsDiv .card p {
     color: #ccc;
 }
@@ -128,5 +132,12 @@ div#likes h6 {
         width: 80vw;
         height: 80vw;
         border-radius: 10px 10px 0 0;
+    }
+    .container .cardsDiv .card hr {
+        width: 75vw;
+        border: 1.5px solid #000;
+    }
+    .container .cardsDiv .card div div.cardHead {
+        height: auto;
     }
 }
