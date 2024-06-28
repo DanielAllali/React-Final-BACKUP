@@ -79,7 +79,20 @@
     border: none;
     margin-left: 10px;
 }
-
+div#likes {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+div#likes h6 {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
 @media (max-width: 900px) {
     .container .cardsDiv .card {
         width: 30vw;

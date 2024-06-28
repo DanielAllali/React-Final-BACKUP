@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useApi, { METHOD } from "../../hooks/useApi";
+import { jwtDecode } from "jwt-decode";
 
 import "ldrs/ring"; /* library fot loading */
 import { quantum } from "ldrs";
@@ -23,6 +24,18 @@ const MyCards = () => {
     const userLogedin = useSelector(
         (state) => state.bCards.userLogedin.payload
     );
+    const [userPerm, setUserPerm] = useState(
+        localStorage.getItem("userPermissions")
+            ? jwtDecode(localStorage.getItem("userPermissions"))
+            : null
+    );
+    useEffect(() => {
+        setUserPerm(
+            localStorage.getItem("userPermissions")
+                ? jwtDecode(localStorage.getItem("userPermissions"))
+                : null
+        );
+    }, [localStorage.getItem("userPermissions")]);
 
     useEffect(() => {
         callApi(
@@ -36,6 +49,18 @@ const MyCards = () => {
         /* if the apiResponse is an array it means its the cards */
         if (Array.isArray(apiResponse)) {
             setCards(apiResponse);
+            let initialLikedCards = {};
+            for (const card of apiResponse) {
+                for (const like of card.likes) {
+                    if (like == userPerm._id) {
+                        initialLikedCards = {
+                            ...initialLikedCards,
+                            [card._id]: card._id,
+                        };
+                    }
+                }
+            }
+            setLikedCards(initialLikedCards);
         }
     }, [apiResponse]);
     const handleLikeUnlike = async (card) => {

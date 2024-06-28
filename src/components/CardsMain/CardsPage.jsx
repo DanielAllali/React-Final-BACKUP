@@ -45,15 +45,27 @@ const CardsPage = () => {
             null,
             { "x-auth-token": localStorage.getItem("userPermissions") }
         );
-        setLikedCards((prevLikedCards) => ({
-            ...prevLikedCards,
-            [card._id]: !prevLikedCards[card._id],
-        }));
+        setLikedCards({
+            ...likedCards,
+            [card._id]: !likedCards[card._id],
+        });
     };
     useEffect(() => {
         /* if the apiResponse is an array it means its the cards */
         if (Array.isArray(apiResponse)) {
             setCards(apiResponse);
+            let initialLikedCards = {};
+            for (const card of apiResponse) {
+                for (const like of card.likes) {
+                    if (like == userPerm._id) {
+                        initialLikedCards = {
+                            ...initialLikedCards,
+                            [card._id]: card._id,
+                        };
+                    }
+                }
+            }
+            setLikedCards(initialLikedCards);
         }
     }, [apiResponse]);
     return (
@@ -68,6 +80,7 @@ const CardsPage = () => {
                 {cards &&
                     cards.map((business) => (
                         <div
+                            key={business._id}
                             className="card"
                             style={{
                                 backgroundColor: uiModeColors.backgrounds.cards,
@@ -132,18 +145,23 @@ const CardsPage = () => {
                                             </svg>
                                         </button>
                                         {userPerm && (
-                                            <button
-                                                className={`heartIcon ${
-                                                    likedCards[business._id]
-                                                        ? "text-danger"
-                                                        : ""
-                                                }`}
-                                                onClick={() => {
-                                                    handleLikeUnlike(business);
-                                                }}
-                                            >
-                                                &#x2665;
-                                            </button>
+                                            <div id="likes">
+                                                <button
+                                                    className={`heartIcon ${
+                                                        likedCards[business._id]
+                                                            ? "text-danger"
+                                                            : ""
+                                                    }`}
+                                                    onClick={() => {
+                                                        handleLikeUnlike(
+                                                            business
+                                                        );
+                                                    }}
+                                                >
+                                                    &#x2665;
+                                                </button>
+                                                <h6>{business.likes.length}</h6>
+                                            </div>
                                         )}
                                         {userPerm && userPerm.isAdmin && (
                                             <button
